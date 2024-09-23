@@ -1,8 +1,8 @@
 {
   "@context" : {
-    @vocab": "https://w3id.org/spoi/model/default-context/",
+    "@vocab": "https://w3id.org/spoi/model/default-context/",
     "type": "@type",
-    Feature": {
+    "Feature": {
       "@id": "http://www.opengis.net/ont/geosparql#Feature"
     },
     "books" : {

@@ -1,0 +1,2478 @@
+@prefix : <https://w3id.org/spoi/model> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix poi: <http://www.openvoc.eu/poi#> .
+@base <https://w3id.org/spoi/model/> .
+
+<https://w3id.org/spoi/model> rdf:type owl:Ontology ;
+                                   rdfs:label "SPOI Ontology"@en ;
+                                   rdfs:seeAlso "http://gis.zcu.cz/spoi"@en .
+
+#################################################################
+#    Data properties
+#################################################################
+###  http://www.openvoc.eu/poi#address
+
+poi:address 
+       a               owl:DatatypeProperty ;
+       rdfs:label 		 "address"@en ;
+       rdfs:range			 xsd:string ;
+       owl:equivalentProperty	<http://schema.org/address> .
+
+###  http://www.openvoc.eu/poi#openingHours
+
+poi:openingHours
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "opening hours"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<https://schema.org/openingHours> .
+      
+###  http://www.openvoc.eu/poi#fax
+
+poi:fax
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "fax"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<https://schema.org/faxNumber> .
+
+###  http://www.openvoc.eu/poi#internetAccess
+
+poi:internetAccess
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "internet access"@en ;
+      rdfs:range			 xsd:string .
+      
+###  http://www.openvoc.eu/poi#accessibility
+
+poi:accessibility
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "accessibility"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<https://schema.org/accessibilitySummary> .  
+
+###  http://www.openvoc.eu/poi#cuisine
+
+poi:cuisine
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "cuisine"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<http://schema.org/servesCuisine> . 
+
+###  http://www.openvoc.eu/poi#iata
+
+poi:iata
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "iata code"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<https://schema.org/iataCode> . 
+
+###  http://www.openvoc.eu/poi#access
+
+poi:access
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "access"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<http://dbpedia.org/ontology/access> .
+              
+###  http://www.openvoc.eu/poi#photo
+
+poi:photo
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "photo"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<https://schema.org/image> .
+
+###  http://www.openvoc.eu/poi#region
+
+poi:region
+			a               owl:DatatypeProperty ;
+      rdfs:label 		 "region"@en ;
+      rdfs:range			 xsd:string ;
+      owl:equivalentProperty	<https://schema.org/addressRegion> .            
+      
+                      
+      
+      
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/spoi/model/aerialway_station
+:aerialway_station rdf:type owl:Class ;
+                   rdfs:subClassOf :transportation ;
+                   rdfs:comment "aerialway.station" ;
+                   rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                   rdfs:label "aerialway station"@en .
+
+
+###  https://w3id.org/spoi/model/airport
+:airport rdf:type owl:Class ;
+         rdfs:subClassOf :transportation ;
+         rdfs:comment "aeroway.aerodrome"@en ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+         rdfs:label "airport"@en ;
+         rdfs:seeAlso "http://eurovoc.europa.eu/218189" ,
+                      "https://www.wikidata.org/entity/Q62447" .
+
+
+###  https://w3id.org/spoi/model/airport_terminal
+:airport_terminal rdf:type owl:Class ;
+                  rdfs:subClassOf :transportation ;
+                  rdfs:comment "aeroway.terminal" ;
+                  rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                  rdfs:label "airport terminal"@en .
+
+
+###  https://w3id.org/spoi/model/alcohol
+:alcohol rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.alcohol" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "alcohol"@en .
+
+
+###  https://w3id.org/spoi/model/antenna
+:antenna rdf:type owl:Class ;
+         rdfs:subClassOf :other ;
+         rdfs:comment "man_made.antenna" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "antenna"@en .
+
+
+###  https://w3id.org/spoi/model/apartment
+:apartment rdf:type owl:Class ;
+           rdfs:subClassOf :lodging ;
+           rdfs:comment "building.apartments" ,
+                        "tourism.apartment" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "apartment"@en .
+
+
+###  https://w3id.org/spoi/model/archaeological_site
+:archaeological_site rdf:type owl:Class ;
+                     rdfs:subClassOf :culture_and_entertainment ;
+                     rdfs:comment "historic.archaeological_site" ;
+                     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                     rdfs:label "archaeological site"@en .
+
+
+###  https://w3id.org/spoi/model/art
+:art rdf:type owl:Class ;
+     rdfs:subClassOf :shopping_and_service ;
+     rdfs:comment "shop.art" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "art"@en .
+
+
+###  https://w3id.org/spoi/model/arts_centre
+:arts_centre rdf:type owl:Class ;
+             rdfs:subClassOf :culture_and_entertainment ;
+             rdfs:comment "amenity.arts_centre" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "arts centre"@en .
+
+
+###  https://w3id.org/spoi/model/artwork
+:artwork rdf:type owl:Class ;
+         rdfs:subClassOf :culture_and_entertainment ;
+         rdfs:comment "tourism.artwork" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "artwork"@en .
+
+
+###  https://w3id.org/spoi/model/atm
+:atm rdf:type owl:Class ;
+     rdfs:subClassOf :shopping_and_service ;
+     rdfs:comment "amenity.atm" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "atm"@en .
+
+
+###  https://w3id.org/spoi/model/bakery
+:bakery rdf:type owl:Class ;
+        rdfs:subClassOf :shopping_and_service ;
+        rdfs:comment "shop.bakery" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "bakery"@en .
+
+
+###  https://w3id.org/spoi/model/bank
+:bank rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ;
+      rdfs:comment "amenity.bank" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "bank"@en .
+
+
+###  https://w3id.org/spoi/model/bar
+:bar rdf:type owl:Class ;
+     rdfs:subClassOf :food_and_drink ;
+     rdfs:comment "amenity.bar" ,
+                  "amenity.bar;restaurant" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+     rdfs:label "bar"@en ;
+     rdfs:seeAlso "https://www.wikidata.org/entity/Q187456" .
+
+
+###  https://w3id.org/spoi/model/bare_rock
+:bare_rock rdf:type owl:Class ;
+           rdfs:subClassOf :natural_feature ;
+           rdfs:comment "natural.bare_rock" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "bare rock"@en .
+
+
+###  https://w3id.org/spoi/model/basin
+:basin rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "landuse.basin" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "basin"@en .
+
+
+###  https://w3id.org/spoi/model/bay
+:bay rdf:type owl:Class ;
+     rdfs:subClassOf :natural_feature ;
+     rdfs:comment "natural.bay" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "bay"@en .
+
+
+###  https://w3id.org/spoi/model/bbq
+:bbq rdf:type owl:Class ;
+     rdfs:subClassOf :food_and_drink ;
+     rdfs:comment "amenity.bbq" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "bbq"@en .
+
+
+###  https://w3id.org/spoi/model/beach
+:beach rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "natural.beach" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "beach"@en .
+
+
+###  https://w3id.org/spoi/model/beauty
+:beauty rdf:type owl:Class ;
+        rdfs:subClassOf :shopping_and_service ;
+        rdfs:comment "shop.beauty" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "beauty"@en .
+
+
+###  https://w3id.org/spoi/model/beverages
+:beverages rdf:type owl:Class ;
+           rdfs:subClassOf :shopping_and_service ;
+           rdfs:comment "shop.beverages" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "beverages"@en .
+
+
+###  https://w3id.org/spoi/model/bicycle_parking
+:bicycle_parking rdf:type owl:Class ;
+                 rdfs:subClassOf :transportation ;
+                 rdfs:comment "amenity.bicycle_parking" ;
+                 rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                 rdfs:label "bicycle parking"@en .
+
+
+###  https://w3id.org/spoi/model/bicycle_rental
+:bicycle_rental rdf:type owl:Class ;
+                rdfs:subClassOf :transportation ;
+                rdfs:comment "amenity.bicycle_rental" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "bicycle rental"@en .
+
+
+###  https://w3id.org/spoi/model/biergarten
+:biergarten rdf:type owl:Class ;
+            rdfs:subClassOf :food_and_drink ;
+            rdfs:comment "amenity.biergarten" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "biergarten"@en .
+
+
+###  https://w3id.org/spoi/model/boat_rental
+:boat_rental rdf:type owl:Class ;
+             rdfs:subClassOf :transportation ;
+             rdfs:comment "amenity.boat_rental" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "boat rental"@en .
+
+
+###  https://w3id.org/spoi/model/boatyard
+:boatyard rdf:type owl:Class ;
+          rdfs:subClassOf :transportation ;
+          rdfs:comment "waterway.boatyard" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "boatyard"@en .
+
+
+###  https://w3id.org/spoi/model/books
+:books rdf:type owl:Class ;
+       rdfs:subClassOf :shopping_and_service ;
+       rdfs:comment "shop.books" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "books"@en .
+
+
+###  https://w3id.org/spoi/model/boutique
+:boutique rdf:type owl:Class ;
+          rdfs:subClassOf :shopping_and_service ;
+          rdfs:comment "shop.boutique" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "boutique"@en .
+
+
+###  https://w3id.org/spoi/model/bridge
+:bridge rdf:type owl:Class ;
+        rdfs:subClassOf :transportation ;
+        rdfs:comment "man_made.bridge" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "bridge"@en .
+
+
+###  https://w3id.org/spoi/model/building
+:building rdf:type owl:Class ;
+          rdfs:subClassOf :professional_and_public ;
+          rdfs:comment "building.yes" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "building"@en .
+
+
+###  https://w3id.org/spoi/model/bureau_de_change
+:bureau_de_change rdf:type owl:Class ;
+                  rdfs:subClassOf :shopping_and_service ;
+                  rdfs:comment "amenity.bureau_de_change" ;
+                  rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                  rdfs:label "bureau de change"@en .
+
+
+###  https://w3id.org/spoi/model/bus_station
+:bus_station rdf:type owl:Class ;
+             rdfs:subClassOf :transportation ;
+             rdfs:comment "amenity.bus_station" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "bus station"@en .
+
+
+###  https://w3id.org/spoi/model/bus_stop
+:bus_stop rdf:type owl:Class ;
+          rdfs:subClassOf :transportation ;
+          rdfs:comment "highway.bus_stop" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "bus stop"@en .
+
+
+###  https://w3id.org/spoi/model/butcher
+:butcher rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.butcher" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "butcher"@en .
+
+
+###  https://w3id.org/spoi/model/cable_car
+:cable_car rdf:type owl:Class ;
+           rdfs:subClassOf :transportation ;
+           rdfs:comment "aerialway.cable_car" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "cable car"@en .
+
+
+###  https://w3id.org/spoi/model/cafe
+:cafe rdf:type owl:Class ;
+      rdfs:subClassOf :food_and_drink ;
+      rdfs:comment "amenity.cafe" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "cafe"@en .
+
+
+###  https://w3id.org/spoi/model/camp_site
+:camp_site rdf:type owl:Class ;
+           rdfs:subClassOf :lodging ;
+           rdfs:comment "tourism.camp_site" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "camp site"@en .
+
+
+###  https://w3id.org/spoi/model/cape
+:cape rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.cape" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "cape"@en .
+
+
+###  https://w3id.org/spoi/model/car
+:car rdf:type owl:Class ;
+     rdfs:subClassOf :car_service ,
+                     :shopping_and_service ;
+     rdfs:comment "shop.car" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "car"@en .
+
+
+###  https://w3id.org/spoi/model/car_parts
+:car_parts rdf:type owl:Class ;
+           rdfs:subClassOf :car_service ,
+                           :shopping_and_service ;
+           rdfs:comment "shop.car_parts" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "car_parts"@en .
+
+
+###  https://w3id.org/spoi/model/car_rental
+:car_rental rdf:type owl:Class ;
+            rdfs:subClassOf :car_service ;
+            rdfs:comment "amenity.car_rental" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "car rental"@en .
+
+
+###  https://w3id.org/spoi/model/car_repair
+:car_repair rdf:type owl:Class ;
+            rdfs:subClassOf :car_service ,
+                            :shopping_and_service ;
+            rdfs:comment "shop.car_repair" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "car repair"@en .
+
+
+###  https://w3id.org/spoi/model/car_service
+:car_service rdf:type owl:Class ;
+             rdfs:subClassOf :transportation ;
+             rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point" ;
+             rdfs:label "car service"@en .
+
+
+###  https://w3id.org/spoi/model/car_wash
+:car_wash rdf:type owl:Class ;
+          rdfs:subClassOf :car_service ;
+          rdfs:comment "amenity.car_wash" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "car wash"@en .
+
+
+###  https://w3id.org/spoi/model/caravan_site
+:caravan_site rdf:type owl:Class ;
+              rdfs:subClassOf :lodging ;
+              rdfs:comment "tourism.caravan_site" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "caravan site"@en .
+
+
+###  https://w3id.org/spoi/model/castle
+:castle rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ;
+        rdfs:comment "historic.castle" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+        rdfs:label "castle"@en ;
+        rdfs:seeAlso "https://www.wikidata.org/entity/Q23413" .
+
+
+###  https://w3id.org/spoi/model/cathedral
+:cathedral rdf:type owl:Class ;
+           rdfs:subClassOf :culture_and_entertainment ;
+           rdfs:comment "building.cathedral" ,
+                        "cathedral"@en ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" .
+
+
+###  https://w3id.org/spoi/model/cave_entrance
+:cave_entrance rdf:type owl:Class ;
+               rdfs:subClassOf :natural_feature ;
+               rdfs:comment "natural.cave_entrance" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "cave entrance"@en .
+
+
+###  https://w3id.org/spoi/model/cemetery
+:cemetery rdf:type owl:Class ;
+          rdfs:subClassOf :culture_and_entertainment ;
+          rdfs:label "cemetery"@en ,
+                     "hřbitov"@cs .
+
+
+###  https://w3id.org/spoi/model/chair_lift
+:chair_lift rdf:type owl:Class ;
+            rdfs:subClassOf :transportation ;
+            rdfs:comment "aerialway.chair_lift" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "chair lift"@en .
+
+
+###  https://w3id.org/spoi/model/chalet
+:chalet rdf:type owl:Class ;
+        rdfs:subClassOf :lodging ;
+        rdfs:comment "tourism.chalet" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "chalet"@en .
+
+
+###  https://w3id.org/spoi/model/chapel
+:chapel rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ;
+        rdfs:label "chapel"@en ,
+                   "kaple"@cs .
+
+
+###  https://w3id.org/spoi/model/chemist
+:chemist rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.chemist" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "chemist"@en .
+
+
+###  https://w3id.org/spoi/model/childcare
+:childcare rdf:type owl:Class ;
+           rdfs:subClassOf :professional_and_public ;
+           rdfs:comment "amenity.childcare" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "childcare"@en .
+
+
+###  https://w3id.org/spoi/model/chimney
+:chimney rdf:type owl:Class ;
+         rdfs:subClassOf :other ;
+         rdfs:comment "man_made.chimney" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "chimney"@en .
+
+
+###  https://w3id.org/spoi/model/church
+:church rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ;
+        rdfs:comment "building.church" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+        rdfs:label "church"@en ;
+        rdfs:seeAlso "http://eurovoc.europa.eu/4101" ,
+                     "https://www.wikidata.org/entity/Q16970" .
+
+
+###  https://w3id.org/spoi/model/cinema
+:cinema rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ;
+        rdfs:comment "amenity.cinema" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "cinema"@en .
+
+
+###  https://w3id.org/spoi/model/city
+:city rdf:type owl:Class ;
+      rdfs:subClassOf :other ;
+      rdfs:comment "place.city" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "city"@en .
+
+
+###  https://w3id.org/spoi/model/cliff
+:cliff rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "natural.cliff" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "cliff"@en .
+
+
+###  https://w3id.org/spoi/model/climbing_wall
+:climbing_wall rdf:type owl:Class ;
+               rdfs:subClassOf :culture_and_entertainment ;
+               rdfs:comment "sport.climbing"@en ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "climbing wall"@en ;
+               rdfs:seeAlso "https://www.wikidata.org/entity/Q1427951" .
+
+
+###  https://w3id.org/spoi/model/clinic
+:clinic rdf:type owl:Class ;
+        rdfs:subClassOf :professional_and_public ;
+        rdfs:comment "amenity.clinic" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "clinic"@en .
+
+
+###  https://w3id.org/spoi/model/clothes
+:clothes rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.clothes" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "clothes"@en .
+
+
+###  https://w3id.org/spoi/model/college
+:college rdf:type owl:Class ;
+         rdfs:subClassOf :professional_and_public ;
+         rdfs:comment "amenity.college" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "college"@en .
+
+
+###  https://w3id.org/spoi/model/commercial_building
+:commercial_building rdf:type owl:Class ;
+                     rdfs:subClassOf :professional_and_public ;
+                     rdfs:comment "building.commercial" ;
+                     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                     rdfs:label "commercial building"@en .
+
+
+###  https://w3id.org/spoi/model/communications_tower
+:communications_tower rdf:type owl:Class ;
+                      rdfs:subClassOf :other ;
+                      rdfs:comment "man_made.communications_tower" ;
+                      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                      rdfs:label "communications tower"@en .
+
+
+###  https://w3id.org/spoi/model/community_centre
+:community_centre rdf:type owl:Class ;
+                  rdfs:subClassOf :professional_and_public ;
+                  rdfs:comment "amenity.community_centre" ;
+                  rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                  rdfs:label "community centre"@en .
+
+
+###  https://w3id.org/spoi/model/computer
+:computer rdf:type owl:Class ;
+          rdfs:subClassOf :shopping_and_service ;
+          rdfs:comment "shop.computer" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "computer"@en .
+
+
+###  https://w3id.org/spoi/model/confectionery
+:confectionery rdf:type owl:Class ;
+               rdfs:subClassOf :shopping_and_service ;
+               rdfs:comment "shop.confectionery" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "confectionery"@en .
+
+
+###  https://w3id.org/spoi/model/convenience
+:convenience rdf:type owl:Class ;
+             rdfs:subClassOf :shopping_and_service ;
+             rdfs:comment "shop.convenience" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "convenience"@en .
+
+
+###  https://w3id.org/spoi/model/copyshop
+:copyshop rdf:type owl:Class ;
+          rdfs:subClassOf :shopping_and_service ;
+          rdfs:comment "shop.copyshop" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "copyshop"@en .
+
+
+###  https://w3id.org/spoi/model/courthouse
+:courthouse rdf:type owl:Class ;
+            rdfs:subClassOf :professional_and_public ;
+            rdfs:comment "amenity.courthouse" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "courthouse"@en .
+
+
+###  https://w3id.org/spoi/model/crossing
+:crossing rdf:type owl:Class ;
+          rdfs:subClassOf :transportation ;
+          rdfs:comment "railway.crossing" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "crossing"@en .
+
+
+###  https://w3id.org/spoi/model/culture_and_entertainment
+:culture_and_entertainment rdf:type owl:Class ;
+                           rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+                           rdfs:label "culture and entertainment"@en .
+
+
+###  https://w3id.org/spoi/model/dam
+:dam rdf:type owl:Class ;
+     rdfs:subClassOf :other ,
+                     :transportation ;
+     rdfs:comment "waterway.dam"@en ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+     rdfs:label "dam"@en ;
+     rdfs:seeAlso "http://eurovoc.europa.eu/217794" ,
+                  "http://www.eionet.europa.eu/gemet/concept/1955" ,
+                  "https://www.wikidata.org/entity/Q12323" .
+
+
+###  https://w3id.org/spoi/model/dentist
+:dentist rdf:type owl:Class ;
+         rdfs:subClassOf :professional_and_public ;
+         rdfs:comment "amenity.dentist" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "dentist"@en .
+
+
+###  https://w3id.org/spoi/model/department_store
+:department_store rdf:type owl:Class ;
+                  rdfs:subClassOf :shopping_and_service ;
+                  rdfs:comment "shop.department_store" ;
+                  rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                  rdfs:label "department store"@en .
+
+
+###  https://w3id.org/spoi/model/dive
+:dive rdf:type owl:Class ;
+      rdfs:subClassOf :culture_and_entertainment ;
+      rdfs:comment "shop.dive" ,
+                   "shop.diving" ,
+                   "shop.scuba_diving" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "dive"@en .
+
+
+###  https://w3id.org/spoi/model/dive_centre
+:dive_centre rdf:type owl:Class ;
+             rdfs:subClassOf :culture_and_entertainment ;
+             rdfs:comment "amenity.dive_centre" ,
+                          "shop.dive_centre" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "dive centre"@en .
+
+
+###  https://w3id.org/spoi/model/dock
+:dock rdf:type owl:Class ;
+      rdfs:subClassOf :transportation ;
+      rdfs:comment "waterway.dock" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "dock"@en .
+
+
+###  https://w3id.org/spoi/model/doctor
+:doctor rdf:type owl:Class ;
+        rdfs:subClassOf :professional_and_public ;
+        rdfs:comment "amenity.doctors" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "doctor"@en .
+
+
+###  https://w3id.org/spoi/model/doityourself
+:doityourself rdf:type owl:Class ;
+              rdfs:subClassOf :shopping_and_service ;
+              rdfs:comment "shop.doityourself" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "doityourself"@en .
+
+
+###  https://w3id.org/spoi/model/drag_lift
+:drag_lift rdf:type owl:Class ;
+           rdfs:subClassOf :transportation ;
+           rdfs:comment "aerialway.drag_lift" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "drag lift"@en .
+
+
+###  https://w3id.org/spoi/model/drinking_water
+:drinking_water rdf:type owl:Class ;
+                rdfs:subClassOf :professional_and_public ;
+                rdfs:comment "amenity.drinking_water" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "drinking water"@en .
+
+
+###  https://w3id.org/spoi/model/dry_cleaning
+:dry_cleaning rdf:type owl:Class ;
+              rdfs:subClassOf :shopping_and_service ;
+              rdfs:comment "shop.dry_cleaning" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "dry cleaning"@en .
+
+
+###  https://w3id.org/spoi/model/dune
+:dune rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.dune" ,
+                   "natural.sand dune" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+      rdfs:label "dune"@en ;
+      rdfs:seeAlso "http://www.eionet.europa.eu/gemet/concept/2377" ,
+                   "https://www.wikidata.org/entity/Q25391" .
+
+
+###  https://w3id.org/spoi/model/electronics
+:electronics rdf:type owl:Class ;
+             rdfs:subClassOf :shopping_and_service ;
+             rdfs:comment "shop.electronics" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "electronics"@en .
+
+
+###  https://w3id.org/spoi/model/embassy
+:embassy rdf:type owl:Class ;
+         rdfs:subClassOf :professional_and_public ;
+         rdfs:comment "amenity.embassy" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "embassy"@en .
+
+
+###  https://w3id.org/spoi/model/farm
+:farm rdf:type owl:Class ;
+      rdfs:subClassOf :other ;
+      rdfs:comment "place.farm" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "farm"@en .
+
+
+###  https://w3id.org/spoi/model/farmland
+:farmland rdf:type owl:Class ;
+          rdfs:subClassOf :other ;
+          rdfs:comment "landuse.farmland" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "farmland"@en .
+
+
+###  https://w3id.org/spoi/model/farmyard
+:farmyard rdf:type owl:Class ;
+          rdfs:subClassOf :shopping_and_service ;
+          rdfs:comment "landuse.farmyard" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "farmyard"@en .
+
+
+###  https://w3id.org/spoi/model/fashion
+:fashion rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.fashion" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "fashion"@en .
+
+
+###  https://w3id.org/spoi/model/fast_food
+:fast_food rdf:type owl:Class ;
+           rdfs:subClassOf :food_and_drink ;
+           rdfs:comment "amenity.fast_food" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "fast food"@en .
+
+
+###  https://w3id.org/spoi/model/ferry_terminal
+:ferry_terminal rdf:type owl:Class ;
+                rdfs:subClassOf :transportation ;
+                rdfs:comment "amenity.ferry_terminal" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "ferry terminal"@en .
+
+
+###  https://w3id.org/spoi/model/fire_station
+:fire_station rdf:type owl:Class ;
+              rdfs:subClassOf :professional_and_public ;
+              rdfs:comment "amenity.fire_station" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "fire station"@en .
+
+
+###  https://w3id.org/spoi/model/fishmonger
+:fishmonger rdf:type owl:Class ;
+            rdfs:subClassOf :shopping_and_service ;
+            rdfs:comment "shop.fishmonger" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "fishmonger"@en .
+
+
+###  https://w3id.org/spoi/model/flagpole
+:flagpole rdf:type owl:Class ;
+          rdfs:subClassOf :other ;
+          rdfs:comment "man_made.flagpole" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "flagpole"@en .
+
+
+###  https://w3id.org/spoi/model/florist
+:florist rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.florist" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "florist"@en .
+
+
+###  https://w3id.org/spoi/model/food_and_drink
+:food_and_drink rdf:type owl:Class ;
+                rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+                rdfs:label "food and drink"@en .
+
+
+###  https://w3id.org/spoi/model/food_court
+:food_court rdf:type owl:Class ;
+            rdfs:subClassOf :food_and_drink ;
+            rdfs:comment "amenity.food_court" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "food court"@en .
+
+
+###  https://w3id.org/spoi/model/footway
+:footway rdf:type owl:Class ;
+         rdfs:subClassOf :transportation ;
+         rdfs:comment "highway.footway" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "footway"@en .
+
+
+###  https://w3id.org/spoi/model/ford
+:ford rdf:type owl:Class ;
+      rdfs:subClassOf :transportation ;
+      rdfs:comment "highway.ford" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "ford"@en .
+
+
+###  https://w3id.org/spoi/model/fortification
+:fortification rdf:type owl:Class ;
+               rdfs:subClassOf :culture_and_entertainment ;
+               rdfs:comment "site_type.fortification" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "fortification"@en .
+
+
+###  https://w3id.org/spoi/model/fountain
+:fountain rdf:type owl:Class ;
+          rdfs:subClassOf :food_and_drink ;
+          rdfs:comment "amenity.fountain" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "fountain"@en .
+
+
+###  https://w3id.org/spoi/model/fuel
+:fuel rdf:type owl:Class ;
+      rdfs:subClassOf :car_service ;
+      rdfs:comment "amenity.fuel" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "fuel"@en .
+
+
+###  https://w3id.org/spoi/model/gallery
+:gallery rdf:type owl:Class ;
+         rdfs:subClassOf :culture_and_entertainment ;
+         rdfs:comment "tourism.gallery" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "gallery"@en .
+
+
+###  https://w3id.org/spoi/model/garage
+:garage rdf:type owl:Class ;
+        rdfs:subClassOf :car_service ;
+        rdfs:comment "amenity.garage" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "garage"@en .
+
+
+###  https://w3id.org/spoi/model/garden
+:garden rdf:type owl:Class ;
+        rdfs:subClassOf :professional_and_public ;
+        rdfs:comment "leisure.garden" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "garden"@en .
+
+
+###  https://w3id.org/spoi/model/garden_centre
+:garden_centre rdf:type owl:Class ;
+               rdfs:subClassOf :shopping_and_service ;
+               rdfs:comment "shop.garden_centre" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "garden centre"@en .
+
+
+###  https://w3id.org/spoi/model/general_shop
+:general_shop rdf:type owl:Class ;
+              rdfs:subClassOf :shopping_and_service ;
+              rdfs:comment "shop.general" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "general shop"@en .
+
+
+###  https://w3id.org/spoi/model/gift
+:gift rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ;
+      rdfs:comment "shop.gift" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "gift"@en .
+
+
+###  https://w3id.org/spoi/model/golf_course
+:golf_course rdf:type owl:Class ;
+             rdfs:subClassOf :culture_and_entertainment ;
+             rdfs:comment "leisure.golf_course" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "golf course"@en .
+
+
+###  https://w3id.org/spoi/model/gondola
+:gondola rdf:type owl:Class ;
+         rdfs:subClassOf :transportation ;
+         rdfs:comment "aerialway.gondola" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "gondola"@en .
+
+
+###  https://w3id.org/spoi/model/greengrocer
+:greengrocer rdf:type owl:Class ;
+             rdfs:subClassOf :shopping_and_service ;
+             rdfs:comment "shop.greengrocer" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "greengrocer"@en .
+
+
+###  https://w3id.org/spoi/model/greenhouse
+:greenhouse rdf:type owl:Class ;
+            rdfs:subClassOf :shopping_and_service ;
+            rdfs:comment "building.greenhouse" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "greenhouse"@en .
+
+
+###  https://w3id.org/spoi/model/guest_house
+:guest_house rdf:type owl:Class ;
+             rdfs:subClassOf :lodging ;
+             rdfs:comment "tourism.guest_house" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+             rdfs:label "guest house"@en ;
+             rdfs:seeAlso "http://eurovoc.europa.eu/214483" ,
+                          "https://www.wikidata.org/entity/Q2460422" .
+
+
+###  https://w3id.org/spoi/model/gym
+:gym rdf:type owl:Class ;
+     rdfs:subClassOf :culture_and_entertainment ;
+     rdfs:comment "amenity.gym" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "gym"@en .
+
+
+###  https://w3id.org/spoi/model/hairdresser
+:hairdresser rdf:type owl:Class ;
+             rdfs:subClassOf :shopping_and_service ;
+             rdfs:comment "shop.hairdresser" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "hairdresser"@en .
+
+
+###  https://w3id.org/spoi/model/halt
+:halt rdf:type owl:Class ;
+      rdfs:subClassOf :transportation ;
+      rdfs:comment "railway.halt" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "halt"@en .
+
+
+###  https://w3id.org/spoi/model/hamlet
+:hamlet rdf:type owl:Class ;
+        rdfs:subClassOf :other ;
+        rdfs:comment "place.hamlet" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "hamlet"@en .
+
+
+###  https://w3id.org/spoi/model/handcrafts
+:handcrafts rdf:type owl:Class ;
+            rdfs:subClassOf :shopping_and_service ;
+            rdfs:comment "shop.handcrafts" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "handcrafts"@en .
+
+
+###  https://w3id.org/spoi/model/hangar
+:hangar rdf:type owl:Class ;
+        rdfs:subClassOf :transportation ;
+        rdfs:comment "aeroway.hangar" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "hangar"@en .
+
+
+###  https://w3id.org/spoi/model/hardware
+:hardware rdf:type owl:Class ;
+          rdfs:subClassOf :shopping_and_service ;
+          rdfs:comment "shop.hardware" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "hardware"@en .
+
+
+###  https://w3id.org/spoi/model/heath
+:heath rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "natural.heath" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "heath"@en .
+
+
+###  https://w3id.org/spoi/model/helipad
+:helipad rdf:type owl:Class ;
+         rdfs:subClassOf :transportation ;
+         rdfs:comment "aeroway.helipad" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "helipad"@en .
+
+
+###  https://w3id.org/spoi/model/hifi
+:hifi rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ;
+      rdfs:comment "shop.hifi" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "hifi"@en .
+
+
+###  https://w3id.org/spoi/model/hill
+:hill rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.hill" ,
+                   "natural.hills" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "hill"@en .
+
+
+###  https://w3id.org/spoi/model/horse_riding
+:horse_riding rdf:type owl:Class ;
+              rdfs:subClassOf :culture_and_entertainment ;
+              rdfs:comment "leisure.horse_riding" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "horse riding"@en .
+
+
+###  https://w3id.org/spoi/model/hospital
+:hospital rdf:type owl:Class ;
+          rdfs:subClassOf :professional_and_public ;
+          rdfs:comment "amenity.hospital" ,
+                       "building.hospital" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "hospital"@en .
+
+
+###  https://w3id.org/spoi/model/hostel
+:hostel rdf:type owl:Class ;
+        rdfs:subClassOf :lodging ;
+        rdfs:comment "tourism.hostel" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "hostel"@en .
+
+
+###  https://w3id.org/spoi/model/hot_spring
+:hot_spring rdf:type owl:Class ;
+            rdfs:subClassOf :culture_and_entertainment ,
+                            :natural_feature ;
+            rdfs:comment "leisure.hot_spring" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "hot spring"@en .
+
+
+###  https://w3id.org/spoi/model/hotel
+:hotel rdf:type owl:Class ;
+       rdfs:subClassOf :lodging ;
+       rdfs:comment "building.hotel" ,
+                    "tourism.hotel" ,
+                    "tourism.hotel;campsite" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+       rdfs:label "hotel"@en ;
+       rdfs:seeAlso "http://eurovoc.europa.eu/214484" ,
+                    "https://www.wikidata.org/entity/Q27686" .
+
+
+###  https://w3id.org/spoi/model/houseware
+:houseware rdf:type owl:Class ;
+           rdfs:subClassOf :shopping_and_service ;
+           rdfs:comment "shop.houseware" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "houseware"@en .
+
+
+###  https://w3id.org/spoi/model/hut
+:hut rdf:type owl:Class ;
+     rdfs:subClassOf :lodging ;
+     rdfs:comment "building.hut" ,
+                  "tourism.alpine_hut" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "alpine hut"@en ,
+                "hut"@en .
+
+
+###  https://w3id.org/spoi/model/ice_cream
+:ice_cream rdf:type owl:Class ;
+           rdfs:subClassOf :food_and_drink ;
+           rdfs:comment "amenity.ice_cream" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "ice cream"@en .
+
+
+###  https://w3id.org/spoi/model/ice_rink
+:ice_rink rdf:type owl:Class ;
+          rdfs:subClassOf :culture_and_entertainment ;
+          rdfs:comment "leisure.ice_rink" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "ice rink"@en .
+
+
+###  https://w3id.org/spoi/model/industrial_building
+:industrial_building rdf:type owl:Class ;
+                     rdfs:subClassOf :professional_and_public ;
+                     rdfs:comment "building.industrial" ;
+                     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                     rdfs:label "industrial building"@en .
+
+
+###  https://w3id.org/spoi/model/information
+:information rdf:type owl:Class ;
+             rdfs:subClassOf :professional_and_public ;
+             rdfs:comment "tourism.information" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "information"@en .
+
+
+###  https://w3id.org/spoi/model/interior_decoration
+:interior_decoration rdf:type owl:Class ;
+                     rdfs:subClassOf :shopping_and_service ;
+                     rdfs:comment "shop.interior_decoration" ;
+                     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                     rdfs:label "interior decoration"@en .
+
+
+###  https://w3id.org/spoi/model/island
+:island rdf:type owl:Class ;
+        rdfs:subClassOf :other ;
+        rdfs:comment "place.island"@en ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+        rdfs:label "island"@en ;
+        rdfs:seeAlso "http://eurovoc.europa.eu/218571" ,
+                     "http://www.eionet.europa.eu/gemet/concept/4514" ,
+                     "https://www.wikidata.org/entity/Q23442" .
+
+
+###  https://w3id.org/spoi/model/islet
+:islet rdf:type owl:Class ;
+       rdfs:subClassOf :other ;
+       rdfs:comment "place.islet" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "islet"@en .
+
+
+###  https://w3id.org/spoi/model/isolated_dwelling
+:isolated_dwelling rdf:type owl:Class ;
+                   rdfs:subClassOf :other ;
+                   rdfs:comment "place.isolated_dwelling" ;
+                   rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                   rdfs:label "isolated dwelling"@en .
+
+
+###  https://w3id.org/spoi/model/jewelry
+:jewelry rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.jewelry" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "jewelry"@en .
+
+
+###  https://w3id.org/spoi/model/jewish
+:jewish rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ;
+        rdfs:comment "religion.jewish" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "jewish"@en .
+
+
+###  https://w3id.org/spoi/model/kindergarten
+:kindergarten rdf:type owl:Class ;
+              rdfs:subClassOf :professional_and_public ;
+              rdfs:comment "amenity.kindergarten" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "kindergarten"@en .
+
+
+###  https://w3id.org/spoi/model/kiosk
+:kiosk rdf:type owl:Class ;
+       rdfs:subClassOf :shopping_and_service ;
+       rdfs:comment "shop.kiosk" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "kiosk"@en .
+
+
+###  https://w3id.org/spoi/model/lake
+:lake rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "lake"@en ;
+      rdfs:seeAlso "http://eurovoc.europa.eu/5697" ,
+                   "http://www.eionet.europa.eu/gemet/concept/4594" ,
+                   "https://www.wikidata.org/entity/Q23397" .
+
+
+###  https://w3id.org/spoi/model/laundry
+:laundry rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.laundry" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "laundry"@en .
+
+
+###  https://w3id.org/spoi/model/leisure_common
+:leisure_common rdf:type owl:Class ;
+                rdfs:subClassOf :culture_and_entertainment ;
+                rdfs:comment "leisure.common" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "leisure common"@en .
+
+
+###  https://w3id.org/spoi/model/library
+:library rdf:type owl:Class ;
+         rdfs:subClassOf :professional_and_public ;
+         rdfs:comment "amenity.library" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "library"@en .
+
+
+###  https://w3id.org/spoi/model/lighthouse
+:lighthouse rdf:type owl:Class ;
+            rdfs:subClassOf :transportation ;
+            rdfs:comment "man_made.lighthouse" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "lighthouse"@en .
+
+
+###  https://w3id.org/spoi/model/locality
+:locality rdf:type owl:Class ;
+          rdfs:subClassOf :other ;
+          rdfs:comment "place.locality" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "locality"@en .
+
+
+###  https://w3id.org/spoi/model/locksmith
+:locksmith rdf:type owl:Class ;
+           rdfs:subClassOf :shopping_and_service ;
+           rdfs:comment "shop.locksmith" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "locksmith"@en .
+
+
+###  https://w3id.org/spoi/model/lodging
+:lodging rdf:type owl:Class ;
+         rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point" ;
+         rdfs:label "lodging"@en .
+
+
+###  https://w3id.org/spoi/model/magic_carpet
+:magic_carpet rdf:type owl:Class ;
+              rdfs:subClassOf :transportation ;
+              rdfs:comment "aerialway.magic_carpet" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "magic carpet"@en .
+
+
+###  https://w3id.org/spoi/model/mall
+:mall rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ;
+      rdfs:comment "shop.mall" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "mall"@en .
+
+
+###  https://w3id.org/spoi/model/marina
+:marina rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ,
+                        :transportation ;
+        rdfs:comment "leisure.marina" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "marina"@en .
+
+
+###  https://w3id.org/spoi/model/marketplace
+:marketplace rdf:type owl:Class ;
+             rdfs:subClassOf :shopping_and_service ;
+             rdfs:comment "amenity.marketplace" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+             rdfs:label "marketplace"@en ;
+             rdfs:seeAlso "https://www.wikidata.org/entity/Q330284" .
+
+
+###  https://w3id.org/spoi/model/massif
+:massif rdf:type owl:Class ;
+        rdfs:subClassOf :natural_feature ;
+        rdfs:comment "natural.massif" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "massif"@en .
+
+
+###  https://w3id.org/spoi/model/medical_supply
+:medical_supply rdf:type owl:Class ;
+                rdfs:subClassOf :shopping_and_service ;
+                rdfs:comment "shop.medical_supply" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "medical supply"@en .
+
+
+###  https://w3id.org/spoi/model/memorial
+:memorial rdf:type owl:Class ;
+          rdfs:subClassOf :culture_and_entertainment ;
+          rdfs:comment "historic.memorial" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "memorial"@en ,
+                     "pomník"@cs .
+
+
+###  https://w3id.org/spoi/model/meteor_crater
+:meteor_crater rdf:type owl:Class ;
+               rdfs:subClassOf :culture_and_entertainment ;
+               rdfs:comment "historic.meteor_crater" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "meteor crater"@en .
+
+
+###  https://w3id.org/spoi/model/mixed_lift
+:mixed_lift rdf:type owl:Class ;
+            rdfs:subClassOf :transportation ;
+            rdfs:comment "aerialway.mixed_lift" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "mixed lift"@en .
+
+
+###  https://w3id.org/spoi/model/mobile_phone
+:mobile_phone rdf:type owl:Class ;
+              rdfs:subClassOf :shopping_and_service ;
+              rdfs:comment "shop.mobile_phone" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "mobile phone"@en .
+
+
+###  https://w3id.org/spoi/model/monastery
+:monastery rdf:type owl:Class ;
+           rdfs:subClassOf :culture_and_entertainment ;
+           rdfs:comment "amenity.monastery" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "monastery"@en .
+
+
+###  https://w3id.org/spoi/model/money_transfer
+:money_transfer rdf:type owl:Class ;
+                rdfs:subClassOf :shopping_and_service ;
+                rdfs:comment "amenity.money_transfer" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "money transfer"@en .
+
+
+###  https://w3id.org/spoi/model/monument
+:monument rdf:type owl:Class ;
+          rdfs:subClassOf :culture_and_entertainment ;
+          rdfs:comment "historic.monument" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "monument"@en .
+
+
+###  https://w3id.org/spoi/model/mosque
+:mosque rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "mosque"@en ;
+        rdfs:seeAlso "https://www.wikidata.org/entity/Q32815" .
+
+
+###  https://w3id.org/spoi/model/motel
+:motel rdf:type owl:Class ;
+       rdfs:subClassOf :lodging ;
+       rdfs:comment "tourism.motel" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "motel"@en .
+
+
+###  https://w3id.org/spoi/model/mountain_range
+:mountain_range rdf:type owl:Class ;
+                rdfs:subClassOf :other ;
+                rdfs:comment "place.mountain_range" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "mountain range"@en .
+
+
+###  https://w3id.org/spoi/model/museum
+:museum rdf:type owl:Class ;
+        rdfs:subClassOf :culture_and_entertainment ;
+        rdfs:comment "tourism.museum" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+        rdfs:label "museum"@en ;
+        rdfs:seeAlso "http://eurovoc.europa.eu/2022" ,
+                     "https://www.wikidata.org/entity/Q33506" .
+
+
+###  https://w3id.org/spoi/model/national_park
+:national_park rdf:type owl:Class ;
+               rdfs:subClassOf :culture_and_entertainment ,
+                               :natural_feature ;
+               rdfs:comment "boundary.national_park" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+               rdfs:label "national park"@en ;
+               rdfs:seeAlso "http://eurovoc.europa.eu/218318" ,
+                            "http://www.eionet.europa.eu/gemet/concept/5484" ,
+                            "https://www.wikidata.org/entity/Q46169" .
+
+
+###  https://w3id.org/spoi/model/natural_attraction
+:natural_attraction rdf:type owl:Class ;
+                    rdfs:subClassOf :natural_feature ;
+                    rdfs:comment "natural.attraction" ;
+                    rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                    rdfs:label "natural attraction"@en .
+
+
+###  https://w3id.org/spoi/model/natural_feature
+:natural_feature rdf:type owl:Class ;
+                 rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+                 rdfs:label "natural feature"@en .
+
+
+###  https://w3id.org/spoi/model/natural_reserve
+:natural_reserve rdf:type owl:Class ;
+                 rdfs:subClassOf :natural_feature ;
+                 rdfs:comment "leisure.natural_reserve" ;
+                 rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+                 rdfs:label "natural reserve"@en ;
+                 rdfs:seeAlso "http://eurovoc.europa.eu/218272" ,
+                              "http://www.eionet.europa.eu/gemet/concept/5489" ,
+                              "https://www.wikidata.org/entity/Q179049" .
+
+
+###  https://w3id.org/spoi/model/neighbourhood
+:neighbourhood rdf:type owl:Class ;
+               rdfs:subClassOf :other ;
+               rdfs:comment "place.neighbourhood" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "neighbourhood"@en .
+
+
+###  https://w3id.org/spoi/model/nightclub
+:nightclub rdf:type owl:Class ;
+           rdfs:subClassOf :culture_and_entertainment ;
+           rdfs:comment "amenity.nightclub" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "nightclub"@en .
+
+
+###  https://w3id.org/spoi/model/office
+:office rdf:type owl:Class ;
+        rdfs:subClassOf :professional_and_public ;
+        rdfs:comment "building.office" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "office"@en .
+
+
+###  https://w3id.org/spoi/model/optician
+:optician rdf:type owl:Class ;
+          rdfs:subClassOf :shopping_and_service ;
+          rdfs:comment "shop.optician" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "optician"@en .
+
+
+###  https://w3id.org/spoi/model/other
+:other rdf:type owl:Class ;
+       rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+       rdfs:label "other"@en .
+
+
+###  https://w3id.org/spoi/model/outdoor
+:outdoor rdf:type owl:Class ;
+         rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+         rdfs:label "outdoor"@en .
+
+
+###  https://w3id.org/spoi/model/park
+:park rdf:type owl:Class ;
+      rdfs:subClassOf :culture_and_entertainment ;
+      rdfs:comment "leisure.park" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+      rdfs:label "park"@en ;
+      rdfs:seeAlso "http://eurovoc.europa.eu/5166" ,
+                   "https://www.wikidata.org/entity/Q22698" .
+
+
+###  https://w3id.org/spoi/model/parking
+:parking rdf:type owl:Class ;
+         rdfs:subClassOf :car_service ;
+         rdfs:comment "amenity.parking"@en ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+         rdfs:seeAlso "http://eurovoc.europa.eu/5429" .
+
+
+###  https://w3id.org/spoi/model/parking_entrance
+:parking_entrance rdf:type owl:Class ;
+                  rdfs:subClassOf :car_service ;
+                  rdfs:comment "amenity.parking_entrance" ;
+                  rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                  rdfs:label "parking entrance"@en .
+
+
+###  https://w3id.org/spoi/model/parking_space
+:parking_space rdf:type owl:Class ;
+               rdfs:subClassOf :car_service ;
+               rdfs:comment "amenity.parking_space" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "parking space"@en .
+
+
+###  https://w3id.org/spoi/model/pastry
+:pastry rdf:type owl:Class ;
+        rdfs:subClassOf :shopping_and_service ;
+        rdfs:comment "shop.pastry" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "pastry"@en .
+
+
+###  https://w3id.org/spoi/model/peak
+:peak rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.peak" ,
+                   "natural.peaks" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "peak"@en .
+
+
+###  https://w3id.org/spoi/model/pharmacy
+:pharmacy rdf:type owl:Class ;
+          rdfs:subClassOf :shopping_and_service ;
+          rdfs:comment "amenity.pharmacy" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "pharmacy"@en .
+
+
+###  https://w3id.org/spoi/model/photo
+:photo rdf:type owl:Class ;
+       rdfs:subClassOf :shopping_and_service ;
+       rdfs:comment "shop.photo" ,
+                    "shop.photo_studio" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "photo"@en ,
+                  "photo studio"@en .
+
+
+###  https://w3id.org/spoi/model/picnic_site
+:picnic_site rdf:type owl:Class ;
+             rdfs:subClassOf :culture_and_entertainment ;
+             rdfs:comment "tourism.picnic_site" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "picnic site"@en .
+
+
+###  https://w3id.org/spoi/model/pier
+:pier rdf:type owl:Class ;
+      rdfs:subClassOf :transportation ;
+      rdfs:comment "man_made.pier" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "pier"@en .
+
+
+###  https://w3id.org/spoi/model/pitch
+:pitch rdf:type owl:Class ;
+       rdfs:subClassOf :culture_and_entertainment ;
+       rdfs:comment "leisure.pitch" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "pitch"@en .
+
+
+###  https://w3id.org/spoi/model/place_of_worship
+:place_of_worship rdf:type owl:Class ;
+                  rdfs:subClassOf :professional_and_public ;
+                  rdfs:comment "amenity.place_of_worship" ;
+                  rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                  rdfs:label "place of worship"@en .
+
+
+###  https://w3id.org/spoi/model/plateau
+:plateau rdf:type owl:Class ;
+         rdfs:subClassOf :natural_feature ;
+         rdfs:comment "natural.plateau" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "plateau"@en .
+
+
+###  https://w3id.org/spoi/model/platter
+:platter rdf:type owl:Class ;
+         rdfs:subClassOf :transportation ;
+         rdfs:comment "aerialway.platter" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "platter"@en .
+
+
+###  https://w3id.org/spoi/model/playground
+:playground rdf:type owl:Class ;
+            rdfs:subClassOf :culture_and_entertainment ;
+            rdfs:comment "leisure.playground" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "playground"@en .
+
+
+###  https://w3id.org/spoi/model/police
+:police rdf:type owl:Class ;
+        rdfs:subClassOf :professional_and_public ;
+        rdfs:comment "amenity.police" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "police"@en .
+
+
+###  https://w3id.org/spoi/model/pond
+:pond rdf:type owl:Class ;
+      rdfs:subClassOf :other ;
+      rdfs:label "pond"@en ,
+                 "rybník"@cs .
+
+
+###  https://w3id.org/spoi/model/post_box
+:post_box rdf:type owl:Class ;
+          rdfs:subClassOf :professional_and_public ;
+          rdfs:comment "amenity.post_box" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "post box"@en .
+
+
+###  https://w3id.org/spoi/model/post_office
+:post_office rdf:type owl:Class ;
+             rdfs:subClassOf :professional_and_public ;
+             rdfs:comment "amenity.post_office" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "post office"@en .
+
+
+###  https://w3id.org/spoi/model/professional_and_public
+:professional_and_public rdf:type owl:Class ;
+                         rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+                         rdfs:label "professional and public"@en .
+
+
+###  https://w3id.org/spoi/model/protected_area
+:protected_area rdf:type owl:Class ;
+                rdfs:subClassOf :natural_feature ;
+                rdfs:comment "natural.protected_area" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "protected area"@en .
+
+
+###  https://w3id.org/spoi/model/pub
+:pub rdf:type owl:Class ;
+     rdfs:subClassOf :food_and_drink ;
+     rdfs:comment "amenity.pub" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "pub"@en .
+
+
+###  https://w3id.org/spoi/model/public_building
+:public_building rdf:type owl:Class ;
+                 rdfs:subClassOf :professional_and_public ;
+                 rdfs:comment "amenity.public_building" ,
+                              "building.civic" ,
+                              "building.public" ;
+                 rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                 rdfs:label "public building"@en .
+
+
+###  https://w3id.org/spoi/model/public_toilet
+:public_toilet rdf:type owl:Class ;
+               rdfs:subClassOf :professional_and_public ;
+               rdfs:comment "amenity.toilet" ,
+                            "building.toilets" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "public toilet"@en ;
+               rdfs:seeAlso "https://www.wikidata.org/entity/Q813966" .
+
+
+###  https://w3id.org/spoi/model/railway_station
+:railway_station rdf:type owl:Class ;
+                 rdfs:subClassOf :transportation ;
+                 rdfs:comment "railway.station" ;
+                 rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+                 rdfs:label "railway station"@en ;
+                 rdfs:seeAlso "https://www.wikidata.org/entity/Q55488" .
+
+
+###  https://w3id.org/spoi/model/ranger_station
+:ranger_station rdf:type owl:Class ;
+                rdfs:subClassOf :professional_and_public ;
+                rdfs:comment "amenity.ranger_station" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "ranger station"@en .
+
+
+###  https://w3id.org/spoi/model/recreation_ground
+:recreation_ground rdf:type owl:Class ;
+                   rdfs:subClassOf :culture_and_entertainment ;
+                   rdfs:comment "leisure.recreation_ground" ;
+                   rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                   rdfs:label "recreation ground"@en .
+
+
+###  https://w3id.org/spoi/model/reef
+:reef rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.reef" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "reef"@en .
+
+
+###  https://w3id.org/spoi/model/region
+:region rdf:type owl:Class ;
+        rdfs:subClassOf :other ;
+        rdfs:comment "place.region" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "region"@en .
+
+
+###  https://w3id.org/spoi/model/rescue_station
+:rescue_station rdf:type owl:Class ;
+                rdfs:subClassOf :professional_and_public ;
+                rdfs:comment "amenity.rescue_station" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "rescue station"@en .
+
+
+###  https://w3id.org/spoi/model/reservoir
+:reservoir rdf:type owl:Class ;
+           rdfs:subClassOf :other ;
+           rdfs:comment "landuse.reservoir" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "reservoir"@en .
+
+
+###  https://w3id.org/spoi/model/residential_building
+:residential_building rdf:type owl:Class ;
+                      rdfs:subClassOf :professional_and_public ;
+                      rdfs:comment "building.residential" ;
+                      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                      rdfs:label "residential building"@en .
+
+
+###  https://w3id.org/spoi/model/rest_area
+:rest_area rdf:type owl:Class ;
+           rdfs:subClassOf :transportation ;
+           rdfs:comment "highway.rest_area" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "rest area"@en .
+
+
+###  https://w3id.org/spoi/model/restaurant
+:restaurant rdf:type owl:Class ;
+            rdfs:subClassOf :food_and_drink ;
+            rdfs:comment "amenity.restaurant" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+            rdfs:label "restaurant" ;
+            rdfs:seeAlso "http://eurovoc.europa.eu/214479" ,
+                         "https://www.wikidata.org/entity/Q11707" .
+
+
+###  https://w3id.org/spoi/model/ridge
+:ridge rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "natural.ridge" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "ridge"@en .
+
+
+###  https://w3id.org/spoi/model/rock
+:rock rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.rock" ,
+                   "natural.rocks" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "rock"@en .
+
+
+###  https://w3id.org/spoi/model/rope_tow
+:rope_tow rdf:type owl:Class ;
+          rdfs:subClassOf :transportation ;
+          rdfs:comment "aerialway.rope_tow" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "rope tow"@en .
+
+
+###  https://w3id.org/spoi/model/ruin
+:ruin rdf:type owl:Class ;
+      rdfs:subClassOf :culture_and_entertainment ;
+      rdfs:comment "building.ruins" ,
+                   "historic.ruins" ,
+                   "tourism.ruins" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+      rdfs:label "ruin"@en ;
+      rdfs:seeAlso "https://www.wikidata.org/entity/Q109607" .
+
+
+###  https://w3id.org/spoi/model/sand
+:sand rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.sand" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "sand"@en .
+
+
+###  https://w3id.org/spoi/model/sandstone
+:sandstone rdf:type owl:Class ;
+           rdfs:subClassOf :natural_feature ;
+           rdfs:comment "natural.sandstone" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "sandstone"@en .
+
+
+###  https://w3id.org/spoi/model/school
+:school rdf:type owl:Class ;
+        rdfs:subClassOf :professional_and_public ;
+        rdfs:comment "amenity.school" ,
+                     "building.school" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "school"@en .
+
+
+###  https://w3id.org/spoi/model/sculpture
+:sculpture rdf:type owl:Class ;
+           rdfs:subClassOf :culture_and_entertainment ;
+           rdfs:label "sculpture"@en ,
+                      "socha"@cs .
+
+
+###  https://w3id.org/spoi/model/seafood
+:seafood rdf:type owl:Class ;
+         rdfs:subClassOf :shopping_and_service ;
+         rdfs:comment "shop.seafood" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "seafood"@en .
+
+
+###  https://w3id.org/spoi/model/shelter
+:shelter rdf:type owl:Class ;
+         rdfs:subClassOf :lodging ;
+         rdfs:comment "amenity.shelter" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "shelter"@en .
+
+
+###  https://w3id.org/spoi/model/shoal
+:shoal rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "natural.shoal" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "shoal"@en .
+
+
+###  https://w3id.org/spoi/model/shoes
+:shoes rdf:type owl:Class ;
+       rdfs:subClassOf :shopping_and_service ;
+       rdfs:comment "shop.shoes" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "shoes"@en .
+
+
+###  https://w3id.org/spoi/model/shop
+:shop rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ;
+      rdfs:comment "shop.yes" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "shop"@en .
+
+
+###  https://w3id.org/spoi/model/shopping_and_service
+:shopping_and_service rdf:type owl:Class ;
+                      rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+                      rdfs:label "shopping and service"@en .
+
+
+###  https://w3id.org/spoi/model/shower
+:shower rdf:type owl:Class ;
+        rdfs:subClassOf :professional_and_public ;
+        rdfs:comment "amenity.shower" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "shower"@en .
+
+
+###  https://w3id.org/spoi/model/signpost
+:signpost rdf:type owl:Class ;
+          rdfs:subClassOf :outdoor ;
+          rdfs:label "rozcestník"@cs ,
+                     "signpost"@en .
+
+
+###  https://w3id.org/spoi/model/silo
+:silo rdf:type owl:Class ;
+      rdfs:subClassOf :other ;
+      rdfs:comment "man_made.silo" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "silo"@en .
+
+
+###  https://w3id.org/spoi/model/skiing
+:skiing rdf:type owl:Class ;
+        rdfs:subClassOf :outdoor ;
+        rdfs:comment "sport.skiing" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "skiing"@en .
+
+
+###  https://w3id.org/spoi/model/slipway
+:slipway rdf:type owl:Class ;
+         rdfs:subClassOf :culture_and_entertainment ;
+         rdfs:comment "leisure.slipway" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "slipway"@en .
+
+
+###  https://w3id.org/spoi/model/sports
+:sports rdf:type owl:Class ;
+        rdfs:subClassOf :shopping_and_service ;
+        rdfs:comment "shop.sports" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "sports"@en .
+
+
+###  https://w3id.org/spoi/model/sports_centre
+:sports_centre rdf:type owl:Class ;
+               rdfs:subClassOf :culture_and_entertainment ;
+               rdfs:comment "building.sports_centre" ,
+                            "leisure.sports_centre" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "sports centre"@en .
+
+
+###  https://w3id.org/spoi/model/spring
+:spring rdf:type owl:Class ;
+        rdfs:subClassOf :natural_feature ;
+        rdfs:comment "natural.spring" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "spring"@en .
+
+
+###  https://w3id.org/spoi/model/stadium
+:stadium rdf:type owl:Class ;
+         rdfs:subClassOf :culture_and_entertainment ;
+         rdfs:comment "building.stadium" ,
+                      "leisure.stadium" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "stadium"@en .
+
+
+###  https://w3id.org/spoi/model/stationery
+:stationery rdf:type owl:Class ;
+            rdfs:subClassOf :shopping_and_service ;
+            rdfs:comment "shop.stationery" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "stationery"@en .
+
+
+###  https://w3id.org/spoi/model/stone
+:stone rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "natural.stone" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "stone"@en .
+
+
+###  https://w3id.org/spoi/model/suburb
+:suburb rdf:type owl:Class ;
+        rdfs:subClassOf :other ;
+        rdfs:comment "place.suburb" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "suburb"@en .
+
+
+###  https://w3id.org/spoi/model/supermarket
+:supermarket rdf:type owl:Class ;
+             rdfs:subClassOf :shopping_and_service ;
+             rdfs:comment "shop.supermarket" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "supermarket"@en .
+
+
+###  https://w3id.org/spoi/model/swimming_pool
+:swimming_pool rdf:type owl:Class ;
+               rdfs:subClassOf :culture_and_entertainment ;
+               rdfs:comment "amenity.swimming_pool" ,
+                            "leisure.swimming_pool" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "swimming pool"@en .
+
+
+###  https://w3id.org/spoi/model/t-bar
+:t-bar rdf:type owl:Class ;
+       rdfs:subClassOf :transportation ;
+       rdfs:comment "aerialway.t-bar" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "t-bar"@en .
+
+
+###  https://w3id.org/spoi/model/tailor
+:tailor rdf:type owl:Class ;
+        rdfs:subClassOf :shopping_and_service ;
+        rdfs:comment "shop.tailor" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "tailor"@en .
+
+
+###  https://w3id.org/spoi/model/taxi
+:taxi rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ,
+                      :transportation ;
+      rdfs:comment "amenity.taxi" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "taxi"@en .
+
+
+###  https://w3id.org/spoi/model/telephone
+:telephone rdf:type owl:Class ;
+           rdfs:subClassOf :professional_and_public ;
+           rdfs:comment "amenity.telephone" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "telephone"@en .
+
+
+###  https://w3id.org/spoi/model/terrace
+:terrace rdf:type owl:Class ;
+         rdfs:subClassOf :other ;
+         rdfs:comment "building.terrace" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "terrace"@en .
+
+
+###  https://w3id.org/spoi/model/theatre
+:theatre rdf:type owl:Class ;
+         rdfs:subClassOf :culture_and_entertainment ;
+         rdfs:comment "amenity.theatre" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "theatre"@en .
+
+
+###  https://w3id.org/spoi/model/theme_park
+:theme_park rdf:type owl:Class ;
+            rdfs:subClassOf :culture_and_entertainment ;
+            rdfs:comment "tourism.theme_park" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "theme park"@en .
+
+
+###  https://w3id.org/spoi/model/ticket
+:ticket rdf:type owl:Class ;
+        rdfs:subClassOf :shopping_and_service ;
+        rdfs:comment "shop.ticket" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "ticket"@en .
+
+
+###  https://w3id.org/spoi/model/tourism_attraction
+:tourism_attraction rdf:type owl:Class ;
+                    rdfs:subClassOf :culture_and_entertainment ;
+                    rdfs:comment "amenity.attraction" ,
+                                 "building.attraction" ,
+                                 "tourism.attraction" ;
+                    rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                    rdfs:label "tourism attraction"@en .
+
+
+###  https://w3id.org/spoi/model/tower
+:tower rdf:type owl:Class ;
+       rdfs:subClassOf :other ;
+       rdfs:comment "man_made.tower" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "tower"@en .
+
+
+###  https://w3id.org/spoi/model/town
+:town rdf:type owl:Class ;
+      rdfs:subClassOf :other ;
+      rdfs:comment "place.town"@en ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+      rdfs:label "town"@en ;
+      rdfs:seeAlso "http://eurovoc.europa.eu/215316" ,
+                   "https://www.wikidata.org/entity/Q3957" .
+
+
+###  https://w3id.org/spoi/model/townhall
+:townhall rdf:type owl:Class ;
+          rdfs:subClassOf :professional_and_public ;
+          rdfs:comment "amenity.townhall" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "townhall"@en .
+
+
+###  https://w3id.org/spoi/model/toys
+:toys rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ;
+      rdfs:comment "shop.toys" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "toys"@en .
+
+
+###  https://w3id.org/spoi/model/track
+:track rdf:type owl:Class ;
+       rdfs:subClassOf :culture_and_entertainment ;
+       rdfs:comment "leisure.track" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "track"@en .
+
+
+###  https://w3id.org/spoi/model/transportation
+:transportation rdf:type owl:Class ;
+                rdfs:isDefinedBy "https://wiki.waze.com/wiki/Places#When_to_use_Area_or_Point"@en ;
+                rdfs:label "transportation"@en .
+
+
+###  https://w3id.org/spoi/model/travel_agency
+:travel_agency rdf:type owl:Class ;
+               rdfs:subClassOf :shopping_and_service ;
+               rdfs:comment "shop.travel_agency" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "travel agency"@en .
+
+
+###  https://w3id.org/spoi/model/tree
+:tree rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.tree" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features"@en ;
+      rdfs:label "tree"@en ;
+      rdfs:seeAlso "http://eurovoc.europa.eu/2404" ,
+                   "https://www.wikidata.org/entity/Q10884" .
+
+
+###  https://w3id.org/spoi/model/tree_row
+:tree_row rdf:type owl:Class ;
+          rdfs:subClassOf :natural_feature ;
+          rdfs:comment "natural.tree_row" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "tree row"@en .
+
+
+###  https://w3id.org/spoi/model/turning_circle
+:turning_circle rdf:type owl:Class ;
+                rdfs:subClassOf :transportation ;
+                rdfs:comment "highway.turning_circle" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "turning circle"@en .
+
+
+###  https://w3id.org/spoi/model/tyres
+:tyres rdf:type owl:Class ;
+       rdfs:subClassOf :car_service ,
+                       :shopping_and_service ;
+       rdfs:comment "shop.tyres" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "tyres"@en .
+
+
+###  https://w3id.org/spoi/model/unesco_heritage_object
+:unesco_heritage_object rdf:type owl:Class ;
+                        rdfs:subClassOf :culture_and_entertainment ;
+                        rdfs:label "unesco heritage"@en .
+
+
+###  https://w3id.org/spoi/model/university
+:university rdf:type owl:Class ;
+            rdfs:subClassOf :professional_and_public ;
+            rdfs:comment "amenity.university" ,
+                         "building.university" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "university"@en .
+
+
+###  https://w3id.org/spoi/model/valley
+:valley rdf:type owl:Class ;
+        rdfs:subClassOf :natural_feature ;
+        rdfs:comment "natural.valley" ;
+        rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+        rdfs:label "valley"@en .
+
+
+###  https://w3id.org/spoi/model/variety_store
+:variety_store rdf:type owl:Class ;
+               rdfs:subClassOf :shopping_and_service ;
+               rdfs:comment "shop.variety_store" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "variety store"@en .
+
+
+###  https://w3id.org/spoi/model/vending_machine
+:vending_machine rdf:type owl:Class ;
+                 rdfs:subClassOf :shopping_and_service ;
+                 rdfs:comment "amenity.vending_machine" ;
+                 rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                 rdfs:label "vending machine"@en .
+
+
+###  https://w3id.org/spoi/model/veterinary
+:veterinary rdf:type owl:Class ;
+            rdfs:subClassOf :professional_and_public ;
+            rdfs:comment "amenity.veterinary" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "veterinary"@en .
+
+
+###  https://w3id.org/spoi/model/video
+:video rdf:type owl:Class ;
+       rdfs:subClassOf :shopping_and_service ;
+       rdfs:comment "shop.video" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "video"@en .
+
+
+###  https://w3id.org/spoi/model/viewpoint
+:viewpoint rdf:type owl:Class ;
+           rdfs:subClassOf :outdoor ;
+           rdfs:comment "tourism.viewpoint" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "viewpoint"@en ,
+                      "vyhlídkové místo"@cs .
+
+
+###  https://w3id.org/spoi/model/village
+:village rdf:type owl:Class ;
+         rdfs:subClassOf :other ;
+         rdfs:comment "place.village" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "village"@en .
+
+
+###  https://w3id.org/spoi/model/visitor_centre
+:visitor_centre rdf:type owl:Class ;
+                rdfs:subClassOf :professional_and_public ;
+                rdfs:comment "amenity.visitor_centre" ;
+                rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+                rdfs:label "visitor centre"@en .
+
+
+###  https://w3id.org/spoi/model/volcano
+:volcano rdf:type owl:Class ;
+         rdfs:subClassOf :natural_feature ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "volcano"@en ;
+         rdfs:seeAlso "http://www.eionet.europa.eu/gemet/concept/9004" ,
+                      "https://www.wikidata.org/wiki/Q8072" .
+
+
+###  https://w3id.org/spoi/model/wadi
+:wadi rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "waterway.wadi" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "wadi"@en .
+
+
+###  https://w3id.org/spoi/model/waste_basket
+:waste_basket rdf:type owl:Class ;
+              rdfs:subClassOf :professional_and_public ;
+              rdfs:comment "amenity.waste_basket" ;
+              rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+              rdfs:label "waste basket"@en .
+
+
+###  https://w3id.org/spoi/model/water
+:water rdf:type owl:Class ;
+       rdfs:subClassOf :natural_feature ;
+       rdfs:comment "natural.water" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "water"@en .
+
+
+###  https://w3id.org/spoi/model/water_point
+:water_point rdf:type owl:Class ;
+             rdfs:subClassOf :food_and_drink ;
+             rdfs:comment "amenity.water_point" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "water point"@en .
+
+
+###  https://w3id.org/spoi/model/water_tank
+:water_tank rdf:type owl:Class ;
+            rdfs:subClassOf :other ;
+            rdfs:comment "man_made.water_tank" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "water tank"@en .
+
+
+###  https://w3id.org/spoi/model/water_tower
+:water_tower rdf:type owl:Class ;
+             rdfs:subClassOf :other ;
+             rdfs:comment "man_made.water_tower" ;
+             rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+             rdfs:label "water tower"@en .
+
+
+###  https://w3id.org/spoi/model/water_well
+:water_well rdf:type owl:Class ;
+            rdfs:subClassOf :other ;
+            rdfs:comment "man_made.water_well" ;
+            rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+            rdfs:label "water well"@en .
+
+
+###  https://w3id.org/spoi/model/waterfall
+:waterfall rdf:type owl:Class ;
+           rdfs:subClassOf :natural_feature ;
+           rdfs:comment "waterway.waterfall" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "waterfall"@en .
+
+
+###  https://w3id.org/spoi/model/wayside_cross
+:wayside_cross rdf:type owl:Class ;
+               rdfs:subClassOf :culture_and_entertainment ;
+               rdfs:comment "historic.wayside_cross" ;
+               rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+               rdfs:label "wayside cross"@en .
+
+
+###  https://w3id.org/spoi/model/weir
+:weir rdf:type owl:Class ;
+      rdfs:subClassOf :transportation ;
+      rdfs:comment "waterway.weir" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "weir"@en .
+
+
+###  https://w3id.org/spoi/model/wetland
+:wetland rdf:type owl:Class ;
+         rdfs:subClassOf :natural_feature ;
+         rdfs:comment "natural.wetland" ;
+         rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+         rdfs:label "wetland"@en .
+
+
+###  https://w3id.org/spoi/model/wholesale
+:wholesale rdf:type owl:Class ;
+           rdfs:subClassOf :shopping_and_service ;
+           rdfs:comment "shop.wholesale" ;
+           rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+           rdfs:label "wholesale"@en .
+
+
+###  https://w3id.org/spoi/model/windpump
+:windpump rdf:type owl:Class ;
+          rdfs:subClassOf :other ;
+          rdfs:comment "man_made.windpump" ;
+          rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+          rdfs:label "windpump"@en .
+
+
+###  https://w3id.org/spoi/model/wine
+:wine rdf:type owl:Class ;
+      rdfs:subClassOf :shopping_and_service ;
+      rdfs:comment "shop.wine" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "wine"@en .
+
+
+###  https://w3id.org/spoi/model/wood
+:wood rdf:type owl:Class ;
+      rdfs:subClassOf :natural_feature ;
+      rdfs:comment "natural.wood" ;
+      rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+      rdfs:label "wood"@en .
+
+
+###  https://w3id.org/spoi/model/wreck
+:wreck rdf:type owl:Class ;
+       rdfs:subClassOf :culture_and_entertainment ;
+       rdfs:comment "historic.wreck" ;
+       rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+       rdfs:label "wreck"@en .
+
+
+###  https://w3id.org/spoi/model/zoo
+:zoo rdf:type owl:Class ;
+     rdfs:subClassOf :culture_and_entertainment ;
+     rdfs:comment "tourism.zoo" ;
+     rdfs:isDefinedBy "http://wiki.openstreetmap.org/wiki/Map_Features" ;
+     rdfs:label "zoo"@en .
+
